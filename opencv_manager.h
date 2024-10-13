@@ -25,6 +25,7 @@ class openCV_manager {
         void convert_gray_image();
         void detect_faces();
         void show_image();
+        void saveFaces(const Mat& image, const std::vector<Rect>& faces);
 
 };
 #endif // OPENCV_MANAGER_H

@@ -84,9 +84,12 @@ int main(int argc, char* argv[]) {
 
     std::vector<Rect> faces = opencv_manager.get_faces();
 
+    #pragma omp parallel for
     for(const Rect& face : faces) {
         rectangle(opencv_manager.image, face, Scalar(255, 0, 0), 2);
     }
+
+    opencv_manager.saveFaces(opencv_manager.image, faces);
     
     opencv_manager.show_image();
 
